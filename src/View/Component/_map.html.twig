@@ -1,3 +1,13 @@
-<div class="row justify-content-center h-75">
-    <img class="map" src="/assets/images/map.png" alt="map of mars">
+<div class="row map-container container-fluid">
+    {% set nb = 1 %}
+    {% for i in 1..5 %}
+    <div class="row cellrow">
+        {% for j in 1..8 %}
+            <div class="col mapcell p-0 h-100" id="{{ nb }}">{{ nb }}</div>
+            {% set nb = nb+1 %}
+        {% endfor %}
+        <div class="w-100 h-0"></div>
+    </div>
+        {% endfor %}
+
 </div>

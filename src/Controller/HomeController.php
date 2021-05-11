@@ -35,6 +35,8 @@ class HomeController extends AbstractController
                 $match = $characterManager->returnAlternativeMatch(($_POST));
                 $matchMessage = "No perfect match found but this person can correspond";
             }
+            $_SESSION['loverId'] = $match['id'];
+            var_dump($_SESSION['loverId']);
             return $this->twig->render('Home/match.html.twig', ['match' => $match,'matchMessage' => $matchMessage]);
         }
         return $this->twig->render('Home/index.html.twig', ['available_options' => $availableOPtions]);

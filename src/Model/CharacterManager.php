@@ -50,4 +50,12 @@ class CharacterManager extends AbstractManager
         $statement->execute();
         return $statement->fetch();
     }
+    public function insertLocation($idCharacter, $divIdLocation)
+    {
+        $query = "UPDATE lover SET location = :location WHERE id = :id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('location', $divIdLocation, \PDO::PARAM_STR);
+        $statement->bindValue('id', $idCharacter, \PDO::PARAM_STR);
+        $statement->execute();
+    }
 }

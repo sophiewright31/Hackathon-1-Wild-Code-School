@@ -14,3 +14,51 @@ h1 {
 .btn {
     color: rgba(255, 183, 122, 0.97);
 }
+
+.global-container {
+    height:100vh;
+}
+
+.main {
+    position: relative;
+    height: calc(100vh - 60px);
+}
+
+.map-container {
+    background-image: url('/assets/images/map.png');
+    background-size: cover;
+    background-color: blue;
+    height:80%;
+}
+
+.mapcell {
+    border: solid 1px black;
+}
+
+.touche {
+    border: solid 1px black;
+}
+
+.cellrow {
+    height:20%;
+}
+
+.board {
+    height: 20%;
+}
+
+.footer-container {
+    height : 30px;
+    background-color: red;
+}
+
+.header-container {
+    height : 30px;
+    background-color: #6c3f3f;
+}
+
+.robot {
+    position: absolute;
+    bottom:0;
+    margin-left: -30px;
+}

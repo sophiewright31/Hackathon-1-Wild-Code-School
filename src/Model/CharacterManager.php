@@ -83,4 +83,11 @@ class CharacterManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
+    public function getLoversByPosition($cellId)
+    {
+        $query = ("SELECT * FROM lover   
+                  WHERE location = " . $cellId);
+        $statement = $this->pdo->query($query);
+        return $statement->fetchAll();
+    }
 }

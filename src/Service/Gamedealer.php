@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Model\AbstractManager;
 use App\Model\CharacterManager;
 use App\Model\MapManager;
 
@@ -18,6 +19,7 @@ class Gamedealer
             }
             $characterManager->insertLocation($idCharacter, $divIdLocation);
         }
+        $_SESSION['currentPosition'] = self::DIV_ID_HOME;
     }
 
     public function getDistance($xR, $yR, $xL, $yL)
@@ -48,5 +50,17 @@ class Gamedealer
         }var_dump($distances);
 
         return $idNearest;
+    }
+    public function checkCurrentPosition($position)
+    {
+        $characterManager = new CharacterManager();
+        $lovers = $characterManager->getLoversByPosition($position);
+        $howManyPeople = count($lovers);
+        switch ($howManyPeople) {
+            case 0 : $this->nothingToSee();break;
+            case 1 : $this->checkIsTheOne();break;
+            default:$this->checkManyPeople();break;
+
+        }
     }
 }

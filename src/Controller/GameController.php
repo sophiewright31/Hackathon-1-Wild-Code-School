@@ -12,6 +12,7 @@ class GameController extends AbstractController
         $gameDealer = new Gamedealer();
         $gameDealer->init();
         $idNearestPotentialLover = $gameDealer->checkSurround(1, $_SESSION['loverMatchId']);
+        $gameDealer->checkCurrentPosition(1);
         return $this->twig->render('Game/index.html.twig');
     }
 }

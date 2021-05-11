@@ -1,27 +1,34 @@
 
 .global-container {
     height:100vh;
+    overflow-x: hidden;
+    background-image: url('/assets/images/mars-landscape.jpg');
 }
 
 .main {
     position: relative;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 30px);
 }
 
+.ingeniosity{
+    object-fit: contain;
+    width:150px;
+    height:100px;
+}
 .map-container{
-    background-image: url('/assets/images/map.png');
+    background-image: url('/assets/images/map2.png');
     background-size: cover;
     background-color: blue;
     height:80%;
 }
 
 .mapcell{
-    border: solid 1px black;
+    border: solid 1px grey;
 }
 
 .touche{
     border: solid 1px black;
-    shad
+    height: 75px;
 }
 
 .cellrow{
@@ -33,7 +40,7 @@
 }
 
 .footer-container{
-    height : 30px;
+    height : 0px;
     background-color: red;
 }
 
@@ -45,5 +52,5 @@
 .robot {
     position: absolute;
     bottom:0;
-    margin-left: -30px;
+    margin-left: -60px;
 }

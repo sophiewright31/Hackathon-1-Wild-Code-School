@@ -50,4 +50,10 @@ class CharacterManager extends AbstractManager
         $statement->execute();
         return $statement->fetch();
     }
+
+    public function meet()
+    {
+        $query = "SELECT * FROM lover JOIN quote ON quote.character_id = lover.id";
+        return $this->pdo->query($query)->fetchAll();
+    }
 }

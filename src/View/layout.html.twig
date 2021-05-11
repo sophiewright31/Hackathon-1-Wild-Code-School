@@ -4,24 +4,24 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>{% block title %}{% endblock %}</title>
-
+    <title>{% block title %}Go and Seek your Loved One{% endblock %}</title>
+    {% block stylesheet %}
     <link rel="stylesheet" href="/assets/css/style.css">
-    {% block stylesheet %}{% endblock %}
+    {% endblock %}
     <link rel="icon" href="/assets/images/favicon.png">
 </head>
 
 <body>
+<div class="global-container">
     {% include 'Component/_header.html.twig' %}
     {% block content %}{% endblock %}
     {% include 'Component/_footer.html.twig' %}
+</div>
 
-
-    {% block javascript %}{% endblock %}
-
+    {% block javascript %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    {% endblock %}
 </body>
 </html>
 

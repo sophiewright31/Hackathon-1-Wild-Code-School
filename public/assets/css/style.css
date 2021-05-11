@@ -62,3 +62,27 @@ h1 {
     bottom:0;
     margin-left: -30px;
 }
+
+.mes-right {
+    background: rgba(10, 0, 92, 0.32);
+    border-radius: 10px 0px 10px 10px;
+}
+
+.mes-right:after {
+    content: "";
+    position: absolute;
+    left:100%;
+    top: 0px;
+    width: 0;
+    height: 0;
+    border-left: 18px solid rgba(10, 0, 92, 0.32);
+    border-bottom: 18px solid transparent;
+}
+
+.enfant {
+    position: absolute;
+}
+
+.parent {
+    position: relative;
+}

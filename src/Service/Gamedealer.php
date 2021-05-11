@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Model\CharacterManager;
+use App\Model\MapManager;
 
 class Gamedealer
 {
@@ -17,5 +18,35 @@ class Gamedealer
             }
             $characterManager->insertLocation($idCharacter, $divIdLocation);
         }
+    }
+
+    public function getDistance($xR, $yR, $xL, $yL)
+    {
+        return sqrt(($xR - $xL) * ($xR - $xL) + ($yR - $yL) * ($yR - $yL)) ;
+    }
+    public function checkSurround($divIdLocation, $loverMatchId)
+    {
+        $mapManager = new MapManager();
+        $characterManager = new CharacterManager();
+        $locationCoordonates = $mapManager->getCoordonates($divIdLocation);
+        $caracteristics = $characterManager->getcaracteisticsById($loverMatchId);
+        $potentialLovers = $characterManager->potentialMatchingLover(($caracteristics));
+
+        $distances = [];
+        foreach ($potentialLovers as $potentialLover) {
+            $distances[$potentialLover['id']] = $this->getDistance($locationCoordonates['xcoord'], $locationCoordonates['ycoord'], $potentialLover['xcoord'], $potentialLover['ycoord']);
+        }
+        $minDistance = (min($distances));
+        var_dump($minDistance);
+
+        $idNearest = 0;
+
+        foreach ($distances as $id => $distance) {
+            if ($distance === $minDistance) {
+                $idNearest = $id;
+            }
+        }var_dump($distances);
+
+        return $idNearest;
     }
 }

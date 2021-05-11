@@ -1,41 +1,36 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    <form method="post" action="/home/index">
+    <form method="POST" action="/home/index">
         <select class="form-select" name ="status" aria-label="Default select example">
             <option selected>Status</option>
             {%for option in available_options.status %}
-            <option value = {{ option.status }} > {{ option.status }} </option>
-            {% forend %}
+            <option value = {{ option }} > {{ option }} </option>
+            {% endfor %}
         </select>
         <select class="form-select" name ="gender" aria-label="Default select example">
             <option selected>Gender</option>
            {%for option in available_options.gender %}
-            <option value = {{ option.gender }} > {{ option.gender }} </option>
-            {% forend %}
+            <option value = {{ option }} > {{ option }} </option>
+            {% endfor %}
         </select>
         <select class="form-select" name ="species" aria-label="Default select example">
             <option selected>Species</option>
             {%for option in available_options.species %}
-            <option value = {{ option.species }} > {{ option.species }} </option>
-            {% forend %}
+            <option value = {{ option }} > {{ option }} </option>
+            {% endfor %}
         </select>
         <select class="form-select" name ="hair" aria-label="Default select example">
             <option selected>Hair</option>
             {%for option in available_options.hair %}
-            <option value = {{ option.hair }} > {{ option.hair }} </option>
-            {% forend %}
+            <option value = {{ option }} > {{ option }} </option>
+            {% endfor %}
         </select>
         <select class="form-select" name ="skill1" aria-label="Default select example">
             <option selected>Skill 1</option>
-            {%for option in available_options.skills %}
-            <option value = {{ option.skills }} > {{ option.skills }} </option>
-            {% forend %}
+            {%for option in available_options.skill %}
+            <option value = {{ option }} > {{ option }} </option>
+            {% endfor %}
         </select>
-        <select class="form-select" name ="skill2" aria-label="Default select example">
-            <option selected>Skill 2</option>
-            {%for option in available_options.skills %}
-            <option value = {{ option.skills }} > {{ option.skills }} </option>
-            {% forend %}
-        </select>
+        <button>Let's find a lover</button>
     </form>
 {% endblock %}

@@ -1,0 +1,14 @@
+
+body {
+    height:100vh;
+}
+
+.main {
+    position: relative;
+    height: calc(100vh-120px)
+}
+
+.robot {
+    position: absolute;
+    bottom: -100px;
+}

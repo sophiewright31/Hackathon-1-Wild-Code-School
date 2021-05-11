@@ -9,6 +9,8 @@
 
 namespace App\Controller;
 
+use App\Model\CharacterManager;
+
 class HomeController extends AbstractController
 {
     /**
@@ -21,6 +23,20 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Home/index.html.twig');
+        $matchMessage = "";
+        $match = [];
+        $characterManager = new characterManager();
+        $availableOPtions = $characterManager->selectAvailableOptions();
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            if ($characterManager->returnPerfectMatch(($_POST))) {
+                $match = $characterManager->returnPerfectMatch(($_POST));
+                $matchMessage = "Perfect Match Found";
+            } else {
+                $match = $characterManager->returnAlternativeMatch(($_POST));
+                $matchMessage = "No perfect match found but this person can correspond";
+            }
+            return $this->twig->render('Home/match.html.twig', ['match' => $match,'matchMessage' => $matchMessage]);
+        }
+        return $this->twig->render('Home/index.html.twig', ['available_options' => $availableOPtions]);
     }
 }

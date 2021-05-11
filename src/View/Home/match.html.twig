@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    {{ dump(matchMessage) }}
+{#    {{ dump(match) }}#}
+    <div class="card" style="width: 18rem;">
+        <img src="{{ match.img_url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ matchMessage }}</h5>
+            <p class="card-text">{{ match.name }} is the one for you, Persy!!!</p>
+            <a href="#" class="btn btn-primary">Go and seek </a>
+        </div>
+    </div>
+{% endblock %}

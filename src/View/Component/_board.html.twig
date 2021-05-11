@@ -1,16 +1,48 @@
 <div class="row justify-content-center board">
-    <div class="col-3"></div>
-    <div class="col-3 ">
-        <img class="robot" src="/assets/images/persy.png" alt="robot">
-    </div>
-    <div class="col-3 row justify-content-end align-items-center">
+    <div class="col-4"></div>
+    <div class="col-3 "><img class="robot" src="/assets/images/persy.png" alt="robot"></div>
+
+    <div class="col-4 row justify-content-end align-items-end">
+
         <div class="row justify-content-center align-items-end">
-            <div class="touche shadow p-3 bg-white rounded w-25 h-50"></div>
+            <div class="w-25">
+            <form method="post">
+                <input type="hidden" name="direction" value="up">
+                <input type="image" src="/assets/images/up-arrow.png" class="shadow p-2 bg-white rounded text-center touche" alt="up">
+            </form>
+            </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="touche shadow p-3 mb-5 bg-white rounded w-25 h-50"></div>
-            <div class="touche shadow p-3 mb-5 bg-white rounded w-25 h-50"></div>
-            <div class="touche shadow p-3 mb-5 bg-white rounded w-25 h-50"></div>
+
+        <div class="row justify-content-center align-items-start">
+            <div class="w-25">
+                <form method="post">
+                    <input type="hidden" name="direction" value="left">
+                    <input type="image" src="/assets/images/left-arrow.png" class="shadow p-2 bg-white rounded text-center touche" alt="left">
+                </form>
+            </div>
+            <div class="w-25">
+                <form method="post">
+                    <input type="hidden" name="direction" value="down">
+                    <input type="image" src="/assets/images/down-arrow.png" class="shadow p-2 bg-white rounded text-center touche" alt="down">
+                </form>
+            </div>
+            <div class="w-25">
+                <form method="post">
+                    <input type="hidden" name="direction" value="right">
+                    <input type="image" src="/assets/images/right-arrow.png" class="shadow p-2 bg-white rounded text-center touche" alt="right">
+                </form>
+            </div>
         </div>
+
     </div>
+    {#<div class="row justify-content-center">
+            <input type="image" name="direction" src="/assets/images/left-arrow.png" value="left" class="shadow p-3 mt-2 bg-white rounded w-25 h-50 text-center touche">
+            <input type="submit" value="left"></div></input>
+            <input type="submit" value="left" img src="/assets/images/left-arrow.png" class="shadow p-3 mb-5 bg-white rounded w-25 h-50 text-center touche">
+        </div>
+        </div>
+        </div>
+            <button><i class="fas fa-arrow-alt-circle-down shadow p-3 mb-5 bg-white rounded w-25 h-50 text-center touche"></i></button>
+            <i class="fas fa-arrow-alt-circle-right shadow p-3 mb-5 bg-white rounded w-25 h-50 text-center touche"></i>
+        </div>#}
 </div>

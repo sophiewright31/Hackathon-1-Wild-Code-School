@@ -39,7 +39,6 @@ class Gamedealer
             $distances[$potentialLover['id']] = $this->getDistance($locationCoordonates['xcoord'], $locationCoordonates['ycoord'], $potentialLover['xcoord'], $potentialLover['ycoord']);
         }
         $minDistance = (min($distances));
-        var_dump($minDistance);
 
         $idNearest = 0;
 
@@ -47,20 +46,20 @@ class Gamedealer
             if ($distance === $minDistance) {
                 $idNearest = $id;
             }
-        }var_dump($distances);
+        }
 
         return $idNearest;
     }
-    public function checkCurrentPosition($position)
-    {
-        $characterManager = new CharacterManager();
-        $lovers = $characterManager->getLoversByPosition($position);
-        $howManyPeople = count($lovers);
-        switch ($howManyPeople) {
-            case 0 : $this->nothingToSee();break;
-            case 1 : $this->checkIsTheOne();break;
-            default:$this->checkManyPeople();break;
-
-        }
-    }
+//    public function checkCurrentPosition($position)
+//    {
+//        $characterManager = new CharacterManager();
+//        $lovers = $characterManager->getLoversByPosition($position);
+//        $howManyPeople = count($lovers);
+////        switch ($howManyPeople) {
+////            case 0 : $this->nothingToSee();break;
+////            case 1 : $this->checkIsTheOne();break;
+////            default:$this->checkManyPeople();break;
+//
+////        }
+//    }
 }

@@ -1,14 +1,98 @@
+h1 {
+    color: rgba(255, 183, 122, 0.97);
+    margin-top : 10px;
+    font-size: 1em;
+    font-family: 'impact', monospace;
+}
 
-body {
+.form-connect {
+    background-image: url('/assets/images/stars.jpg');
+    height: 100%;
+    color: rgba(255, 183, 122, 0.97);
+}
+
+.btn {
+    color: rgba(255, 183, 122, 0.97);
+}
+
+.global-container {
     height:100vh;
+    overflow-x: hidden;
+    background-image: url('/assets/images/mars-landscape.jpg');
 }
 
 .main {
     position: relative;
-    height: calc(100vh-120px)
+    height: calc(100vh - 30px);
+}
+
+.ingeniosity{
+    object-fit: contain;
+    width:150px;
+    height:100px;
+}
+.map-container{
+    background-image: url('/assets/images/map2.png');
+    background-size: cover;
+    background-color: blue;
+    height:80%;
+}
+
+.mapcell{
+    border: solid 1px grey;
+
+}
+
+.touche {
+    border: solid 1px black;
+    height: 75px;
+}
+
+.cellrow {
+    height:20%;
+}
+
+.board {
+    height: 20%;
+}
+
+.footer-container{
+    height : 0px;
+    background-color: red;
+}
+
+.header-container {
+    height : 30px;
+    background-color: #6c3f3f;
 }
 
 .robot {
     position: absolute;
-    bottom: -100px;
+    bottom:0;
+    margin-left: -60px;
 }
+
+.mes-right {
+    background: rgba(10, 0, 92, 0.32);
+    border-radius: 10px 0px 10px 10px;
+}
+
+.mes-right:after {
+    content: "";
+    position: absolute;
+    left:100%;
+    top: 0px;
+    width: 0;
+    height: 0;
+    border-left: 18px solid rgba(10, 0, 92, 0.32);
+    border-bottom: 18px solid transparent;
+}
+
+.enfant {
+    position: absolute;
+}
+
+.parent {
+    position: relative;
+}
+

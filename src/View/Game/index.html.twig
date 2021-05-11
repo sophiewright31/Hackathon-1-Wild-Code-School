@@ -1,18 +1,12 @@
-{% block content %}
+{% extends 'layout.html.twig' %}
 
-    <div class="container.fluid main h-100">
+{% block content %}
+    <div class="container main">
         {% include 'Component/_map.html.twig' %}
 
 
-        <div class="row justify-content-center h-25">
-            <div class="col-3 ">
-                <img class="robot" src="/assets/images/persy.png" alt="robot">
-            </div>
-        </div>
+        {% include 'Component/_board.html.twig' %}
 
     </div>
-
-
-
 
 {% endblock %}

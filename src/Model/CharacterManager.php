@@ -50,6 +50,7 @@ class CharacterManager extends AbstractManager
         $statement->execute();
         return $statement->fetch();
     }
+
     public function insertLocation($idCharacter, $divIdLocation)
     {
         $query = "UPDATE lover SET location = :location WHERE id = :id";
@@ -89,5 +90,12 @@ class CharacterManager extends AbstractManager
                   WHERE location = " . $cellId);
         $statement = $this->pdo->query($query);
         return $statement->fetchAll();
+
+    }
+    public function meet()
+    {
+        $query = "SELECT * FROM lover JOIN quote ON quote.character_id = lover.id";
+        return $this->pdo->query($query)->fetchAll();
+
     }
 }

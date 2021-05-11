@@ -1,0 +1,16 @@
+h1 {
+    color: rgba(255, 183, 122, 0.97);
+    margin-top : 10px;
+    font-size: 1em;
+    font-family: 'impact', monospace;
+}
+
+.form-connect {
+    background-image: url('/assets/images/stars.jpg');
+    height: 100%;
+    color: rgba(255, 183, 122, 0.97);
+}
+
+.btn {
+    color: rgba(255, 183, 122, 0.97);
+}

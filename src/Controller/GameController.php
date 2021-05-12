@@ -25,6 +25,8 @@ class GameController extends AbstractController
             $openmeet = 0;
             $_SESSION['alreadyvisited'] = [];
             $alreadyvisited='';
+            $_SESSION['turnNb'] = 0;
+            $groundControl='';
         }
         $characterManager = new CharacterManager();
         $characters = $characterManager->meet();
@@ -39,7 +41,8 @@ class GameController extends AbstractController
             $newId = $mapManager->getDivIdByCoordinates($currentxy['xcoord'], $currentxy['ycoord']);
             $_SESSION['currentPosition'] = $newId;
 
-
+            $gameDealer = new Gamedealer();
+            $groundControl = $gameDealer->countTurns();
             $_SESSION['alreadyvisited'][] = $newId ;
             $alreadyvisited = json_encode($_SESSION['alreadyvisited']);
 
@@ -60,7 +63,8 @@ class GameController extends AbstractController
             'openmeet' => $openmeet,
             'alreadyvisited' => $alreadyvisited,
             'background' => $backgrounds,
-            'speech' => $speech
+            'speech' => $speech,
+            'groundControl' => $groundControl
         ]);
     }
     public function happy()

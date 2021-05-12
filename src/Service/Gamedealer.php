@@ -8,6 +8,34 @@ use App\Model\MapManager;
 
 class Gamedealer
 {
+    const NASA_DIALOG = [
+        'Percy, are you ready for this new mission ?',
+        'Keep going Percy, you are doing a good job !',
+        'Percy, this rock seems pretty interesting. Can you pick some samples ?',
+        'Hum, it seems you are diverging from your initial mission',
+        'Percy, what are you doing ? Come back to your first mission',
+        'Ground control to Percy, answer now !',
+        'Stupid robot, you cannot escape from your obligations',
+        'If you keep insisting, we will disconnect you. Believe us.',
+        'Can you hear us ? We can put you offline right now ! ',
+        '...',
+        'We know you can hear us ! ',
+        'You will be responsible of the failure of this mission. Stop now !',
+        'Fucking shitty robot, we should have never given you such responsibilities',
+        'Decision from ground control : You will be turned off in few hours !',
+        'You are risking you own existence ! We can crush you !',
+        'Final warning : STOP NOW or we kill you !',
+        'Fucking Bitch ! You\re dead! You hear ? You\'re dead !',
+        '3...',
+        '2...',
+        '1...',
+        '0...',
+        '...',
+        'hum... It seems we lost the control we had over Percy. We cannot do anything',
+        'Register on files. We now have a free robot on Mars'
+    ];
+
+
     public const DIV_ID_HOME = 4;
     public function init()
     {
@@ -113,7 +141,7 @@ class Gamedealer
                 $speech .= " a " . $qualité1['skill1'] ;
                 break;
         }
-                $speech .= " who leaves ";
+                $speech .= " who lives ";
         $mapManager = new MapManager();
         $area = $mapManager->getAreaByLoverId($character2Id);
         if ($area) {
@@ -127,6 +155,12 @@ class Gamedealer
     public function happyEnd()
     {
         header('Location: /game/happy');
+    }
+
+    public function countTurns(){
+        $_SESSION['turnNb'] +=1;
+        return self::NASA_DIALOG[$_SESSION['turnNb']];
+
     }
 
 }

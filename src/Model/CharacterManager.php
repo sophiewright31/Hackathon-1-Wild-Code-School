@@ -104,4 +104,10 @@ class CharacterManager extends AbstractManager
         $query = "SELECT * FROM lover JOIN quote ON quote.character_id = lover.id";
         return $this->pdo->query($query)->fetchAll();
     }
+
+    public function getLocationById($id){
+        $query = "SELECT location from lover where id=" . $id;
+        $statement = $this->pdo->query($query);
+        return $statement->fetch(\PDO::FETCH_COLUMN);
+    }
 }

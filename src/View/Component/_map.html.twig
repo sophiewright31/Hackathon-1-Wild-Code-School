@@ -1,10 +1,10 @@
 
-<div class="row map-container container-fluid">
+<div class="row map-container container-fluid" id="mapcontent" data-highlightcell={{ alreadyvisited }}>
     {% set nb = 1 %}
     {% for i in 1..5 %}
         <div class="row cellrow">
             {% for j in 1..8 %}
-                <div class="col mapcell p-0 h-100" id="{{ nb }}">{{ nb }}
+                <div class="col mapcell p-0 h-100" id="cell{{ nb }}">{{ nb }}
                     {% if nb == 4 %}
                         <img src="/assets/images/ingeniosity-unscreen.gif" class="ingeniosity">
                     {% endif %}

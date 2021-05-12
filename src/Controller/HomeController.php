@@ -24,6 +24,9 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        if(isset($_SESSION)) {
+            $_SESSION = [];
+        }
         $_SESSION['unlockmove'] = 0;
 
         $matchMessage = "";

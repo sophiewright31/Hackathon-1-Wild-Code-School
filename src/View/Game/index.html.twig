@@ -8,5 +8,10 @@
         {% include 'Component/_board.html.twig' %}
 
     </div>
+    {% include 'Component/_MeetModal.html.twig' %}
+{% endblock %}
 
+{% block javascript %}
+{{ parent() }}
+<script src="/assets/scripts/showMeetModal.js"></script>
 {% endblock %}

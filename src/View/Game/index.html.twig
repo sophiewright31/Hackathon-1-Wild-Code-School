@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+
     <div class="container main">
         {% include 'Component/_map.html.twig' %}
 
@@ -14,4 +15,5 @@
 {% block javascript %}
 {{ parent() }}
 <script src="/assets/scripts/showMeetModal.js"></script>
+<script src="/assets/scripts/highlightcell.js"></script>
 {% endblock %}

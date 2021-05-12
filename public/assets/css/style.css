@@ -41,6 +41,10 @@ h1 {
 
 .mapcell{
     border: solid 1px grey;
+}
+
+.highlighted-cell{
+    background-color: rgba(128,128, 128,0.5);
 
 }
 

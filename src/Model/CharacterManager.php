@@ -87,7 +87,7 @@ class CharacterManager extends AbstractManager
     }
     public function getLoversByPosition($cellId)
     {
-        $query = ("SELECT * FROM lover JOIN quote ON quote.character_id = lover.id  
+        $query = ("SELECT * FROM lover LEFT JOIN quote ON quote.character_id = lover.id  
                   WHERE location = " . $cellId);
         $statement = $this->pdo->query($query);
         return $statement->fetchAll();

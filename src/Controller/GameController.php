@@ -14,6 +14,7 @@ class GameController extends AbstractController
         $gameDealer = new Gamedealer();
         $newId = 4;
         $openmeet = 1;
+        $speakingLover = [];
 
         if ($_SESSION['unlockmove'] === 0) {
             $gameDealer->init();
@@ -23,8 +24,7 @@ class GameController extends AbstractController
         }
         $characterManager = new CharacterManager();
         $characters = $characterManager->meet();
-        $speakingLover = $gameDealer->checkCurrentPosition($_SESSION['currentPosition']);
-        $gameDealer->getSpeech();
+
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $robotMover = new RobotMover();
@@ -33,6 +33,8 @@ class GameController extends AbstractController
             $mapManager = new MapManager();
             $newId = $mapManager->getDivIdByCoordinates($currentxy['xcoord'], $currentxy['ycoord']);
             $_SESSION['currentPosition'] = $newId;
+            $speakingLover = $gameDealer->checkCurrentPosition($_SESSION['currentPosition']);
+            $speech = $gameDealer->getSpeech();
             $this->twig->addGlobal('session', $_SESSION);
         }
 
@@ -42,7 +44,8 @@ class GameController extends AbstractController
             'characters' => $characters,
             'newId' => $newId,
             'speakingLover' => $speakingLover,
-            'openmeet' => $openmeet
+            'openmeet' => $openmeet,
+            'speech' => $speech
         ]);
     }
 }

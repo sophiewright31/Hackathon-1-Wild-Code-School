@@ -32,6 +32,8 @@ class Gamedealer
         $mapManager = new MapManager();
         $characterManager = new CharacterManager();
         $locationCoordonates = $mapManager->getCoordonates($divIdLocation);
+        $locationCoordonates['ycoord'] ++;
+        $locationCoordonates['xcoord'] ++;
         $caracteristics = $characterManager->getcaracteisticsById($loverMatchId);
         $potentialLovers = $characterManager->potentialMatchingLover(($caracteristics));
 

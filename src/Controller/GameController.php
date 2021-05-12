@@ -31,6 +31,7 @@ class GameController extends AbstractController
         $characterManager = new CharacterManager();
         $characters = $characterManager->meet();
         $backgrounds = $characterManager->getBackground($_SESSION['currentPosition']);
+        $_SESSION['coordTarget'] = $characterManager->getLocationById($_SESSION['loverMatchId']);
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -55,6 +56,7 @@ class GameController extends AbstractController
         }
 
         $openmeet = 1;
+        var_dump($_SESSION['coordTarget']);
 
         return $this->twig->render('Game/index.html.twig', [
             'characters' => $characters,
@@ -64,7 +66,8 @@ class GameController extends AbstractController
             'alreadyvisited' => $alreadyvisited,
             'background' => $backgrounds,
             'speech' => $speech,
-            'groundControl' => $groundControl
+            'groundControl' => $groundControl,
+            'coordTarget' => $_SESSION['coordTarget']
         ]);
     }
     public function happy()

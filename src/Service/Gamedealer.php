@@ -20,6 +20,7 @@ class Gamedealer
             $characterManager->insertLocation($idCharacter, $divIdLocation);
         }
         $_SESSION['currentPosition'] = self::DIV_ID_HOME;
+
     }
 
     public function getDistance($xR, $yR, $xL, $yL)

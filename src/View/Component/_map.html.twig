@@ -1,21 +1,24 @@
+
+{#                       {{  dump(whereAreLovers.1.0.0.name) }}#}
+
 <div class="row map-container container-fluid">
     {% set nb = 1 %}
     {% for i in 1..5 %}
-    <div class="row cellrow">
-        {% for j in 1..8 %}
-            <div class="col mapcell p-0 h-100" id="{{ nb }}">{{ nb }}
-{% if nb == 4 %}
-<img src="/assets/images/ingeniosity2.gif" class="ingeniosity">
-    {% endif %}
-                {% if nb == 8 %}
-                    <img src="/assets/images/icon_rover.png" class="ingeniosity">
-                {% endif %}
-            </div>
-            {% set nb = nb+1 %}
-        {% endfor %}
-        <div class="w-100 h-0"></div>
-    </div>
-        {% endfor %}
+        <div class="row cellrow">
+            {% for j in 1..8 %}
+                <div class="col mapcell p-0 h-100" id="{{ nb }}">{{ nb }}
+                   {% if nb == 4 %}
+                        <img src="/assets/images/ingeniosity-unscreen.gif" class="ingeniosity">
+                    {% endif %}
+                    {% if nb == session.currentPosition %}
+                        <img src="/assets/images/icon_rover.png" class="ingeniosity">
+                    {% endif %}
+                </div>
+                {% set nb = nb+1 %}
+            {% endfor %}
+            <div class="w-100 h-0"></div>
+        </div>
+    {% endfor %}
 
 
     <!-- Button trigger modal -->
@@ -33,15 +36,15 @@
                 </div>
                 <div class="modal-body ">
                     {% for character in characters %}
-                    <div class="card parent" style="width: 18rem;">
-                        <img src="{{ character.img_url }}" class="card-img-top" alt="imageOfaMartian">
-                        <div class="mes-right mes-right:after enfant">{{ character.quote }}</div>
-                        <div class="card-body bg-dark text-light">
-                            <h5 class="card-title">{{ character.name }}</h5>
-                            <p class="card-text"><em>{{ character.quote }}</em></p>
+                        <div class="card parent" style="width: 18rem;">
+                            <img src="{{ character.img_url }}" class="card-img-top" alt="imageOfaMartian">
+                            <div class="mes-right mes-right:after enfant">{{ character.quote }}</div>
+                            <div class="card-body bg-dark text-light">
+                                <h5 class="card-title">{{ character.name }}</h5>
+                                <p class="card-text"><em>{{ character.quote }}</em></p>
 
+                            </div>
                         </div>
-                    </div>
                     {% endfor %}
 
                 </div>

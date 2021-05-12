@@ -15,6 +15,7 @@ class GameController extends AbstractController
         $newId = 4;
         $openmeet = 1;
         $speakingLover = [];
+        $speech = "";
 
         if ($_SESSION['unlockmove'] === 0) {
             $gameDealer->init();

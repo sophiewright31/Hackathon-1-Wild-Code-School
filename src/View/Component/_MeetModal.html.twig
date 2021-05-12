@@ -1,0 +1,24 @@
+<div class="modal fade" id="meet-modal" data-openmeet="{{ openmeet == 0 ? 0 : 1 }} data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content bg-dark text-light text-center align-items-center">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Let's hear indications</h5>
+            </div>
+            <div class="modal-body ">
+                <div class="card parent" style="width: 18rem;">
+                    <img src="{{ speakingLover.img_url }}" class="card-img-top" alt="imageOfaMartian">
+                    <div class="mes-right mes-right:after enfant">{{ speakingLover.quote }}</div>
+                    <div class="card-body bg-dark text-light">
+                        <h5 class="card-title">{{ speakingLover.name }}</h5>
+                        <p class="card-text"><em>{{ speakingLover.quote }}</em></p>
+                        <p class="card-text"><em>{{ speech }}</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-light" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+

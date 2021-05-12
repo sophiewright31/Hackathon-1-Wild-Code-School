@@ -5,7 +5,7 @@
         <div class="row cellrow">
             {% for j in 1..8 %}
                 <div class="col mapcell p-0 h-100" id="{{ nb }}">{{ nb }}
-                   {% if nb == 4 %}
+                    {% if nb == 4 %}
                         <img src="/assets/images/ingeniosity-unscreen.gif" class="ingeniosity">
                     {% endif %}
                     {% if nb == session.currentPosition %}
@@ -17,38 +17,7 @@
             <div class="w-100 h-0"></div>
         </div>
     {% endfor %}
-
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Launch static backdrop modal
-    </button>
 </div>
 
-    <!-- Modal -->
 
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog ">
-            <div class="modal-content bg-dark text-light text-center align-items-center">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Let's hear indications</h5>
-                </div>
-                <div class="modal-body ">
-                    <div class="card parent" style="width: 18rem;">
-                        <img src="{{ speakingLover.img_url }}" class="card-img-top" alt="imageOfaMartian">
-                        <div class="mes-right mes-right:after enfant">{{ speakingLover.quote }}</div>
-                        <div class="card-body bg-dark text-light">
-                            <h5 class="card-title">{{ speakingLover.name }}</h5>
-                            <p class="card-text"><em>{{ speakingLover.quote }}</em></p>
-                            <p class="card-text"><em>{{ speech }}</em></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-light" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 

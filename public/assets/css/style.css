@@ -18,6 +18,7 @@ h1 {
 .global-container {
     height:100vh;
     overflow-x: hidden;
+    background-repeat: no-repeat;
     background-image: url('/assets/images/mars-landscape.jpg');
 }
 

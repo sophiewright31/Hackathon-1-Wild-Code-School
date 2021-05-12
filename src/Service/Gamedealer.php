@@ -32,7 +32,24 @@ class Gamedealer
         '0...',
         '...',
         'hum... It seems we lost the control we had over Percy. We cannot do anything',
-        'Register on files. We now have a free robot on Mars'
+        'Register on files. We now have a free robot on Mars',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
+        '...',
     ];
 
 

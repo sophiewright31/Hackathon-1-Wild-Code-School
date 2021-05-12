@@ -42,14 +42,14 @@ class CharacterManager extends AbstractManager
     public function returnAlternativeMatch($caracteristics)
     {
         $query = "SELECT * FROM lover 
-                WHERE status = :status 
-                AND species = :species
-                ";
+                WHERE  species  LIKE :species";
+
+
         $statement = $this->pdo->prepare($query);
-        $statement->bindValue('status', $caracteristics['status'], \PDO::PARAM_STR);
-        $statement->bindValue('species', $caracteristics['species'], \PDO::PARAM_STR);
+        $statement->bindValue('species', $caracteristics['species']."%", \PDO::PARAM_STR);
         $statement->execute();
-        return $statement->fetch();
+
+        return ( $statement->fetch());
     }
 
     public function insertLocation($idCharacter, $divIdLocation)

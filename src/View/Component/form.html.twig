@@ -22,6 +22,7 @@
         <select class="form-select mt-4" name ="species" aria-label="Default select example">
             <option selected>Species</option>
             {%for option in available_options.species %}
+                {{ dump(option) }}
             <option value = {{ option }} > {{ option }} </option>
             {% endfor %}
         </select>

@@ -1,5 +1,33 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    <p>Bravo</p>
-    {{ dump(lover) }}
+    <div class="newsletter-section">
+        <div class="page-width">
+            <div id="confettis">
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+       <div class="row">
+           <div class="col-5"><img src="/assets/images/hearttrans.gif"></div>
+           <div class="col-3">
+    <div class="card mt-5 bg-dark text-light" style="width: 18rem;">
+        <img src="{{ lover.img_url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{ lover.name }}</h5>
+            <p class="card-text text-center">Hello babe, let's nickers!</p>
+        </div>
+    </div>
+           </div>
+           <div class="col-4"><img src="/assets/images/hearttrans.gif"></div>
+       </div>
+    </div>
 {% endblock %}

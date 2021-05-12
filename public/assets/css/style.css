@@ -159,3 +159,14 @@ h1 {
     75% { transform: rotateZ(5deg) rotateY(1080deg) translate(-10vw,80vh); }
     100% { transform: rotateZ(15deg) rotateY(1440deg) translate(10vw,110vh); }
 }
+
+.font {
+    color: rgba(177, 87, 10, 0.97);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: clamp(25px, 5vw, 125px);
+    text-transform: uppercase;
+    box-decoration-break: clone;
+    transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), filter 300ms;
+}

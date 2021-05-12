@@ -55,7 +55,6 @@ class Gamedealer
     {
         $characterManager = new CharacterManager();
         $lovers = $characterManager->getLoversByPosition($position);
-        $howManyPeople = count($lovers);
         foreach ($lovers as $lover){
             if($lover['id'] === $_SESSION['loverMatchId']){
                 $this->happyEnd();die();
@@ -87,7 +86,6 @@ class Gamedealer
     }
     public function getSpeech(){
 //        to erase
-        $_SESSION['currentPosition'] = 28;
         $characterManager = new CharacterManager();
         $speech = "I'm not your lover but i know";
         $character1Id = $_SESSION['loverMatchId'];

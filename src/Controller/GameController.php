@@ -11,9 +11,9 @@ class GameController extends AbstractController
 {
     public function index()
     {
+        $gameDealer = new Gamedealer();
         $newId=100;
         if ($_SESSION['unlockmove']=== 0) {
-            $gameDealer = new Gamedealer();
             $gameDealer->init();
             $_SESSION['unlockmove']=1;
             $newId=4;

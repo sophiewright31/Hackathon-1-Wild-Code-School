@@ -15,11 +15,14 @@ class GameController extends AbstractController
         $newId = 4;
         $openmeet = 1;
 
+
         if ($_SESSION['unlockmove'] === 0) {
             $gameDealer->init();
             $_SESSION['unlockmove'] = 1;
             $newId = 4;
             $openmeet = 0;
+            $_SESSION['alreadyvisited'] = [];
+            $alreadyvisited='';
         }
         $characterManager = new CharacterManager();
         $characters = $characterManager->meet();
@@ -33,6 +36,10 @@ class GameController extends AbstractController
             $mapManager = new MapManager();
             $newId = $mapManager->getDivIdByCoordinates($currentxy['xcoord'], $currentxy['ycoord']);
             $_SESSION['currentPosition'] = $newId;
+
+            $_SESSION['alreadyvisited'][] = $newId ;
+            $alreadyvisited = json_encode($_SESSION['alreadyvisited']);
+
             $this->twig->addGlobal('session', $_SESSION);
         }
 
@@ -42,7 +49,8 @@ class GameController extends AbstractController
             'characters' => $characters,
             'newId' => $newId,
             'speakingLover' => $speakingLover,
-            'openmeet' => $openmeet
-        ]);
+            'openmeet' => $openmeet,
+            'alreadyvisited' => $alreadyvisited
+                    ]);
     }
 }

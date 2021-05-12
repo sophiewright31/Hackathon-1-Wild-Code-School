@@ -42,6 +42,7 @@ class HomeController extends AbstractController
                 $matchMessage = "No perfect match found but this person can correspond";
             }
             $_SESSION['loverMatchId'] = $match['id'];
+            $this->twig->addGlobal('session', $_SESSION);
             return $this->twig->render('Home/match.html.twig', ['match' => $match,'matchMessage' => $matchMessage]);
         }
         return $this->twig->render('Home/index.html.twig', ['available_options' => $availableOPtions]);

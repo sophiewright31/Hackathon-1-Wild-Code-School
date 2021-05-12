@@ -27,12 +27,13 @@ class GameController extends AbstractController
             $alreadyvisited='';
             $_SESSION['turnNb'] = 0;
             $groundControl='';
+            $characterManager = new CharacterManager();
+            $_SESSION['coordTarget'] = $characterManager->getLocationById($_SESSION['loverMatchId']);
+
         }
         $characterManager = new CharacterManager();
         $characters = $characterManager->meet();
         $backgrounds = $characterManager->getBackground($_SESSION['currentPosition']);
-        $_SESSION['coordTarget'] = $characterManager->getLocationById($_SESSION['loverMatchId']);
-
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $robotMover = new RobotMover();

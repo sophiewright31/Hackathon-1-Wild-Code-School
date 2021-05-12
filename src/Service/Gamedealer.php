@@ -127,5 +127,9 @@ class Gamedealer
         return $speech;
 
     }
+    public function happyEnd()
+    {
+        header('Location: /game/happy');
+    }
 
 }

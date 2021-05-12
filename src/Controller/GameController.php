@@ -13,9 +13,11 @@ class GameController extends AbstractController
         $characterManager = new CharacterManager();
         $characters = $characterManager->meet();
         $gameDealer->init();
-        $idNearestPotentialLover = $gameDealer->checkSurround(1, $_SESSION['loverMatchId']);
+        $gameDealer->getSpeech();
+        $speakingLover = $gameDealer->checkCurrentPosition(5);
         return $this->twig->render('Game/index.html.twig', [
-            'characters' => $characters
+            'speakingLover' =>$speakingLover
+
         ]);
     }
 }

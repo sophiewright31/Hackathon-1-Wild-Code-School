@@ -1,3 +1,4 @@
+{{ dump(speakingLover) }}
 <div class="row map-container container-fluid">
     {% set nb = 1 %}
     {% for i in 1..5 %}
@@ -32,17 +33,15 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Let's hear indications</h5>
                 </div>
                 <div class="modal-body ">
-                    {% for character in characters %}
                     <div class="card parent" style="width: 18rem;">
-                        <img src="{{ character.img_url }}" class="card-img-top" alt="imageOfaMartian">
-                        <div class="mes-right mes-right:after enfant">{{ character.quote }}</div>
+                        <img src="{{ speakingLover.img_url }}" class="card-img-top" alt="imageOfaMartian">
+                        <div class="mes-right mes-right:after enfant">{{ speakingLover.quote }}</div>
                         <div class="card-body bg-dark text-light">
-                            <h5 class="card-title">{{ character.name }}</h5>
-                            <p class="card-text"><em>{{ character.quote }}</em></p>
+                            <h5 class="card-title">{{ speakingLover.name }}</h5>
+                            <p class="card-text"><em>{{ speakingLover.quote }}</em></p>
 
                         </div>
                     </div>
-                    {% endfor %}
 
                 </div>
                 <div class="modal-footer">

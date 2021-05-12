@@ -50,16 +50,81 @@ class Gamedealer
 
         return $idNearest;
     }
-//    public function checkCurrentPosition($position)
-//    {
-//        $characterManager = new CharacterManager();
-//        $lovers = $characterManager->getLoversByPosition($position);
-//        $howManyPeople = count($lovers);
-////        switch ($howManyPeople) {
-////            case 0 : $this->nothingToSee();break;
-////            case 1 : $this->checkIsTheOne();break;
-////            default:$this->checkManyPeople();break;
-//
-////        }
-//    }
+    public function checkCurrentPosition($position)
+    {
+        $characterManager = new CharacterManager();
+        $lovers = $characterManager->getLoversByPosition($position);
+        $howManyPeople = count($lovers);
+        foreach ($lovers as $lover){
+            if($lover['id'] === $_SESSION['loverMatchId']){
+                $this->happyEnd();die();
+            }
+        }
+        if(empty($lovers)){
+            $loverSpeaking = [];
+        }
+        else{
+            $loverSpeaking = $lovers[0];
+        }
+        return $loverSpeaking;
+
+
+    }
+
+    public function getCommonCarac($id1, $id2)
+    {
+        $result = "";
+        $characterManager = new CharacterManager();
+        $charac1 = $characterManager->getcaracteisticsById($id1);
+        $charac2 = $characterManager->getcaracteisticsById($id2);
+        foreach ($charac1[0] as $qualite => $valeur){
+            if($valeur === $charac2[0][$qualite]){
+                $result =  $qualite;break;
+            }
+        }
+        return $result;
+    }
+    public function getSpeech(){
+//        to erase
+        $_SESSION['currentPosition'] = 28;
+        $characterManager = new CharacterManager();
+        $speech = "I'm not your lover but i know";
+        $character1Id = $_SESSION['loverMatchId'];
+        $character2Id = $this->checkSurround($_SESSION['currentPosition'], $_SESSION['loverMatchId'] );
+        $commonQualite = $this->getCommonCarac($character1Id,$character2Id);
+        $qualité1 = $characterManager->getcaracteisticsById($character1Id)[0];
+        switch ($commonQualite){
+            case 'species':
+                $speech .=" a " . $qualité1['species'];
+                break;
+            case 'status':
+                $speech .=" a " . $qualité1['status'] . ' person ';
+                break;
+            case 'gender':
+                $speech .=" a " . $qualité1['gender'];
+                break;
+            case 'skill':
+                $speech .=" a " . $qualité1['skill'];
+                break;
+            case 'hair':
+                $speech .=" a " . $qualité1['hair'] . ' haired person';
+                break;
+            case 'skill1':
+                $speech .=" a " . $qualité1['skill1'] ;
+                break;
+
+
+        }
+                $speech .= " who leaves ";
+        $mapManager = new MapManager();
+        $area = $mapManager->getAreaByLoverId($character2Id);
+        if($area){
+            $speech .= ' in ' . $area;
+        }else {
+            $speech .= ' in a few minutes from here';
+        }
+        return $speech;
+
+    }
+
 }

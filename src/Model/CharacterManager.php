@@ -4,6 +4,7 @@ namespace App\Model;
 
 class CharacterManager extends AbstractManager
 {
+    public const TABLE = 'lover';
     public function selectAvailableOptions(): array
     {
         $match = [];
@@ -62,7 +63,7 @@ class CharacterManager extends AbstractManager
 
     public function getcaracteisticsById($matchId)
     {
-        $query = "SELECT status, species, gender, hair, skill1 FROM lover WHERE id =" . $matchId;
+        $query = "SELECT  species, skill1, hair, gender,  status FROM lover WHERE id =" . $matchId;
         $statement = $this->pdo->query($query);
         return $statement->fetchAll();
     }
@@ -86,7 +87,7 @@ class CharacterManager extends AbstractManager
     }
     public function getLoversByPosition($cellId)
     {
-        $query = ("SELECT * FROM lover   
+        $query = ("SELECT * FROM lover JOIN quote ON quote.character_id = lover.id  
                   WHERE location = " . $cellId);
         $statement = $this->pdo->query($query);
         return $statement->fetchAll();

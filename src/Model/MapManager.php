@@ -27,4 +27,13 @@ class MapManager extends AbstractManager
         $statement = $this->pdo->query($query);
         return $statement->fetchAll();
     }
+
+    public function getAreabyLoverId($id)
+    {
+        $query = "SELECT area_name FROM mapcell m 
+                    JOIN lover l ON l.location = m.cell_nb 
+                    WHERE l.id =  " . $id;
+        $statement = $this->pdo->query($query);
+        return $statement->fetch(\PDO::FETCH_COLUMN);
+    }
 }

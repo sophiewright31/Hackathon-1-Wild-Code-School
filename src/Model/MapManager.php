@@ -9,7 +9,6 @@ class MapManager extends AbstractManager
         $query = "SELECT m.xcoord, m.ycoord, l.name, l.status, l.species, l.gender, l.hair ,l.skill1 FROM lover l
                 RIGHT JOIN mapcell m ON l.location = m.cell_nb ";
         $statement = $this->pdo->query($query);
-        var_dump($statement->fetchAll());
     }
 
     public function getCoordonates($divIdLocation)
@@ -17,6 +16,13 @@ class MapManager extends AbstractManager
         $query = "SELECT xcoord, ycoord FROM mapcell WHERE cell_nb = " . $divIdLocation;
         $statement = $this->pdo->query($query);
         return $statement->fetch();
+    }
+
+    public function getDivIdByCoordinates(int $x, int $y)
+    {
+        $query = "SELECT cell_nb FROM mapcell WHERE xcoord = " . $x . ' AND ycoord = ' . $y ;
+        $statement = $this->pdo->query($query);
+        return $statement->fetch(\PDO::FETCH_COLUMN);
     }
 
     public function getLoversBycoordonates($x, $y)

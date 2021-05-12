@@ -10,6 +10,7 @@
 namespace App\Controller;
 
 use App\Model\CharacterManager;
+use App\Service\Gamedealer;
 
 class HomeController extends AbstractController
 {
@@ -23,6 +24,8 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        $_SESSION['unlockmove'] = 0;
+
         $matchMessage = "";
         $match = [];
         $characterManager = new characterManager();

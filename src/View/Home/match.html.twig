@@ -1,11 +1,38 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    <div class="card" style="width: 18rem;">
+    <div class="newsletter-section">
+        <div class="page-width">
+            <div id="confettis">
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+            </div>
+            <div class="section-header text-center">
+                <div class="rte">Match detected!</div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5"></div>
+            <div class="col-3">
+    <div class="card bg-dark text-light text-center align-items-center mt-5 mb-5" style="width: 18rem;">
         <img src="{{ match.img_url }}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ matchMessage }}</h5>
             <p class="card-text">{{ match.name }} is the one for you, Persy!!!</p>
-            <a href="/game/index" class="btn btn-primary">Go and seek </a>
+            <a href="/game/index" class="btn btn-light">Go and seek </a>
         </div>
     </div>
+            </div>
+            <div class="col-4"></div>
+    </div>
+    </div>
+
 {% endblock %}

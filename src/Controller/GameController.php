@@ -23,6 +23,7 @@ class GameController extends AbstractController
         }
         $characterManager = new CharacterManager();
         $characters = $characterManager->meet();
+        $backgrounds = $characterManager->getBackground($_SESSION['currentPosition']);
         $speakingLover = $gameDealer->checkCurrentPosition($_SESSION['currentPosition']);
         $gameDealer->getSpeech();
 
@@ -42,7 +43,8 @@ class GameController extends AbstractController
             'characters' => $characters,
             'newId' => $newId,
             'speakingLover' => $speakingLover,
-            'openmeet' => $openmeet
+            'openmeet' => $openmeet,
+            'background' => $backgrounds
         ]);
     }
 }

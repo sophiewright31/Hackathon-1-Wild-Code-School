@@ -93,6 +93,14 @@ class CharacterManager extends AbstractManager
         return $statement->fetchAll();
 
     }
+
+    public function getBackground($cellId)
+    {
+        $query = ('SELECT * FROM mapcell WHERE cell_nb = ' . $cellId);
+        $statement = $this->pdo->query($query);
+        return $statement->fetchAll();
+    }
+
     public function meet()
     {
         $query = "SELECT * FROM lover JOIN quote ON quote.character_id = lover.id";

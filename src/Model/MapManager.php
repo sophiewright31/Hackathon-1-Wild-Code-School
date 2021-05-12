@@ -20,7 +20,7 @@ class MapManager extends AbstractManager
 
     public function getDivIdByCoordinates(int $x, int $y)
     {
-        $query = "SELECT cell_nb FROM mapcell WHERE xcoord = " . $x . ' AND ycoord = ' . $y ;
+        $query = "SELECT cell_nb FROM mapcell WHERE xcoord = " . $x . ' AND ycoord = ' . $y;
         $statement = $this->pdo->query($query);
         return $statement->fetch(\PDO::FETCH_COLUMN);
     }

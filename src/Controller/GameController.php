@@ -62,7 +62,6 @@ class GameController extends AbstractController
             'background' => $backgrounds,
             'speech' => $speech
         ]);
-
     }
     public function happy()
     {

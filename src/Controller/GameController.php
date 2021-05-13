@@ -16,6 +16,7 @@ class GameController extends AbstractController
         $openmeet = 1;
         $speakingLover = [];
         $speech = "";
+        $matchLoverPosition = 0;
 
 
         if ($_SESSION['unlockmove'] === 0) {
@@ -28,7 +29,6 @@ class GameController extends AbstractController
             $_SESSION['turnNb'] = 0;
             $groundControl='';
             $characterManager = new CharacterManager();
-            $_SESSION['coordTarget'] = $characterManager->getLocationById($_SESSION['loverMatchId']);
 
         }
         $characterManager = new CharacterManager();
@@ -57,7 +57,7 @@ class GameController extends AbstractController
         }
 
         $openmeet = 1;
-
+        $matchLoverPosition = $characterManager->getLocationById($_SESSION['loverMatchId']);
         return $this->twig->render('Game/index.html.twig', [
             'characters' => $characters,
             'newId' => $newId,
@@ -67,7 +67,7 @@ class GameController extends AbstractController
             'background' => $backgrounds,
             'speech' => $speech,
             'groundControl' => $groundControl,
-            'coordTarget' => $_SESSION['coordTarget']
+            'matchLoverPosition' => $matchLoverPosition
         ]);
     }
     public function happy()

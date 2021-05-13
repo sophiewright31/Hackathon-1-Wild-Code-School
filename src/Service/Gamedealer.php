@@ -57,7 +57,7 @@ class Gamedealer
     public function init()
     {
         $characterManager = new CharacterManager();
-        for ($idCharacter = 1; $idCharacter <= 39; $idCharacter++) {
+        for ($idCharacter = 1; $idCharacter <= 40; $idCharacter++) {
                 $divIdLocation = rand(1, 40);
             if ($divIdLocation === self::DIV_ID_HOME) {
                 $divIdLocation = rand(1, 40);
@@ -65,6 +65,8 @@ class Gamedealer
             $characterManager->insertLocation($idCharacter, $divIdLocation);
         }
         $_SESSION['currentPosition'] = self::DIV_ID_HOME;
+        $matchLoverposition = $characterManager->getLocationById($_SESSION['loverMatchId']);
+        return $matchLoverposition;
     }
 
     public function getDistance($xR, $yR, $xL, $yL)
@@ -102,7 +104,7 @@ class Gamedealer
         $characterManager = new CharacterManager();
         $lovers = $characterManager->getLoversByPosition($position);
         foreach ($lovers as $lover) {
-            if ($lover['id'] === $_SESSION['loverMatchId']) {
+            if ($lover['character_id'] === $_SESSION['loverMatchId']) {
                 $this->happyEnd();
                 die();
             }
